@@ -21,18 +21,18 @@ module Rich
             ActiveSupport::Dependencies.autoload_once_paths.delete path
           end
 
-          procedure = proc {
-            ::Jzip::Engine.add_template_location({File.expand_path("../../../../assets/jzip", __FILE__) => File.join(Rails.root, "public", "javascripts")})
-            ::Sass::Plugin.add_template_location( File.expand_path("../../../../assets/sass", __FILE__),   File.join(Rails.root, "public", "stylesheets") )
-            copy_assets
-          }
+          # procedure = proc {
+          #   ::Jzip::Engine.add_template_location({File.expand_path("../../../../assets/jzip", __FILE__) => File.join(Rails.root, "public", "javascripts")})
+          #   ::Sass::Plugin.add_template_location( File.expand_path("../../../../assets/sass", __FILE__),   File.join(Rails.root, "public", "stylesheets") )
+          #   copy_assets
+          # }
 
           if Rails::VERSION::MAJOR >= 3
             config.after_initialize do
-              procedure.call
+              # procedure.call
             end
           else
-            procedure.call
+            # procedure.call
           end
         end
 
