@@ -24,7 +24,7 @@ module App
 
           login
           assert page.has_css? "div#rich_cms_dock"
-          assert page.has_content? "Mark content"
+          assert page.has_content? "Editar contenido"
           assert_equal "< header >"   , find(".left h1.cms_content" ).text
           assert_equal "< paragraph >", find(".left div.cms_content").text
 
