@@ -37,14 +37,16 @@ module Rich
         end
 
         def copy_assets
-          return if Rails.env == "test"
-
-          source_dir = File.join File.dirname(__FILE__), "..", "..", "..", "assets", "images", "."
-          target_dir = File.join Rails.root, "public", "images", "rich", "cms"
-
-          FileUtils.rm_r    target_dir if File.exists? target_dir
-          FileUtils.mkdir_p target_dir
-          FileUtils.cp_r    source_dir, target_dir
+          return
+          # Workaround for heroku
+          # return if Rails.env == "test"
+          # 
+          # source_dir = File.join File.dirname(__FILE__), "..", "..", "..", "assets", "images", "."
+          # target_dir = File.join Rails.root, "public", "images", "rich", "cms"
+          # 
+          # FileUtils.rm_r    target_dir if File.exists? target_dir
+          # FileUtils.mkdir_p target_dir
+          # FileUtils.cp_r    source_dir, target_dir
         end
 
         def current_controller=(current_controller)
